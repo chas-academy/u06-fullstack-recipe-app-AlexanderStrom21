@@ -1,14 +1,19 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDetails } from '../interfaces/login-details';
-import { catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
+import { User } from '../interfaces/user';
+
+interface ResultData{
+  token: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://127.0.0.1/api/';
+  private baseUrl = 'http://127.0.0.1:8000/api/';
 
   private httpOptions ={
   headers: new HttpHeaders({
@@ -18,12 +23,19 @@ export class AuthService {
   constructor(private http:HttpClient) {  }
 
   loginUser(loginDetails: LoginDetails){
-    this.http.post<any>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
+    this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result =>{
         console.log(result);
         localStorage.setItem("token", result.token);
       })
   }
+
+  getUser2(): Observable<User[]>{
+    console.log(localStorage.getItem("token"));
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + localStorage.getItem("token"));
+    return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
+  }
+
   private handleError(error:HttpErrorResponse){
     if(error.status === 404){
       console.error('an error occurred:', error.error);
