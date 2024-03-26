@@ -1,17 +1,21 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDetails } from '../interfaces/login-details';
-import { Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
 
 interface ResultData{
-  token: string
+  token: string,
+  user: User
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private signedIn = new BehaviorSubject<boolean>(false)
+  signedIn$ = this.signedIn
 
   private baseUrl = 'http://127.0.0.1:8000/api/';
 
@@ -22,6 +26,15 @@ export class AuthService {
 }
   constructor(private http:HttpClient) {  }
 
+    private updateLoginState(LoginState: boolean){
+      this.signedIn.next(LoginState);
+    }
+  
+    // register(register: Register): Observable<ResultData>{
+    //   return this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
+    //     map(result:Observable)
+    //   )
+    // }
   loginUser(loginDetails: LoginDetails){
     this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result =>{
