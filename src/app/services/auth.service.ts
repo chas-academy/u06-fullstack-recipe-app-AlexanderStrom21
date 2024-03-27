@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { LoginDetails } from '../interfaces/login-details';
 import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
+import { RegisterDetails } from '../interfaces/register-details';
+
 
 interface ResultData{
   token: string,
@@ -26,15 +28,12 @@ export class AuthService {
 }
   constructor(private http:HttpClient) {  }
 
-    private updateLoginState(LoginState: boolean){
-      this.signedIn.next(LoginState);
-    }
-  
-    // register(register: Register): Observable<ResultData>{
-    //   return this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
-    //     map(result:Observable)
-    //   )
-    // }
+
+  registerUser(register: RegisterDetails): Observable<ResultData>{
+    return this.http.post<ResultData>(this.baseUrl + 'register', register, this.httpOptions).pipe(
+      catchError(this.handleError))
+    
+  }
   loginUser(loginDetails: LoginDetails){
     this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result =>{
@@ -42,9 +41,9 @@ export class AuthService {
       })
   }
 
-  getUser2(): Observable<User[]>{
-    return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
-  }
+  // getUser2(): Observable<User[]>{
+  //   return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
+  // }
 
   private handleError(error:HttpErrorResponse){
     if(error.status === 404){

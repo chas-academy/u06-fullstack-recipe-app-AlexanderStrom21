@@ -4,6 +4,7 @@ import { AuthService } from './services/auth.service';
 import { LoginDetails } from './interfaces/login-details';
 import { User } from './interfaces/user';
 import { CommonModule } from '@angular/common';
+import { RegisterDetails } from './interfaces/register-details';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +13,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
+
 export class AppComponent {
   title = 'frontEnd';
 
+  registerDetails: RegisterDetails;
   loginDetails: LoginDetails; 
 
+  
   user?: User;
 
+
   constructor(private auth: AuthService){
+    this.registerDetails = {
+      name:'',
+      email:'',
+      password:''
+    }
     this.loginDetails = {
       email:'user@user.user',
       password:'user'
@@ -29,11 +40,12 @@ export class AppComponent {
     auth.loginUser(this.loginDetails);
     
   }
-  getUser(){
-    this.auth.getUser2().subscribe(res =>{
-      console.log(res[0]);
-      this.user = res [0];
-    })
-  }
+  
+  // getUser(){
+  //   this.auth.getUser2().subscribe(res =>{
+  //     console.log(res[0]);
+  //     this.user = res [0];
+  //   })
+  // }
 
 }
