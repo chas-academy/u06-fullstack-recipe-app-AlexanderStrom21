@@ -1,1 +1,11 @@
 <p>recipes works!</p>
+
+<input type="text" [(ngModel)] ="searchterm">
+
+<button (click)="searchRecipe()">Get Recipes</button>
+
+@for(recipe of recipes; track recipe){
+<article>
+    
+</article>
+} @empty {<p>there are no recipes...</p>}

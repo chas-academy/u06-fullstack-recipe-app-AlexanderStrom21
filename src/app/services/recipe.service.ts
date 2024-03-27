@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class RecipeService {
 
   private baseUrl = 'https://api.edamam.com/api/recipes/v2?type=public';
-  private app_key = 'd751d17f';
-  private app_id = 'd8313a3b3cadbbf8c76d7df1acad0fce';
+  private app_key = 'd8313a3b3cadbbf8c76d7df1acad0fce';
+  private app_id = 'd751d17f';
 
   private httpOptions ={
   headers: new HttpHeaders({
@@ -19,8 +19,12 @@ export class RecipeService {
 }
   constructor(private http:HttpClient) { }
 
-  getRecipes(searchterm: string): Observable<any[]>{
-    let url = this.baseUrl + searchterm + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&cuisineType=Asian&mealType=Breakfast";
-    return this.http.get<any[]>(this.baseUrl, this.httpOptions);
+  getRecipes(searchterm: string): Observable<any>{
+    let cuisineType = "Asian";
+    let mealType = "Breakfast";
+    let url = this.baseUrl + "&q=" + searchterm + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&cuisineType=" + cuisineType + "&mealType=" + mealType;
+    return this.http.get<any>(url, this.httpOptions);
+  // istället för any så kan man bygga upp ett interface för att kunna ge mer precis sök funktion
   }
 }
+
