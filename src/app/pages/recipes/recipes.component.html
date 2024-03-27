@@ -3,9 +3,15 @@
 <input type="text" [(ngModel)] ="searchterm">
 
 <button (click)="searchRecipe()">Get Recipes</button>
-
+    
 @for(recipe of recipes; track recipe){
 <article>
+    <h3>{{recipe.label}}</h3>
+    <img src="{{recipe.image}}" width="200"/>
+    <p>time to cook: {{recipe.totalTime}}min</p>
+    <p><a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]"></a></p>
+    <br>
+    <p>Ingredients: {{recipe.ingredientLines}}</p>
     
 </article>
 } @empty {<p>there are no recipes...</p>}

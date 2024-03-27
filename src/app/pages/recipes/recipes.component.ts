@@ -3,12 +3,13 @@ import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { RecipeIDFormaterPipePipe } from '../../pipe/recipe.idformater.pipe.pipe';
+import { RecipeidformatterPipe } from '../../pipe/recipe-idformater.pipe';
+
 
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [FormsModule, RouterLink, RecipeIDFormaterPipePipe],
+  imports: [FormsModule, RouterLink, RecipeidformatterPipe],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css'
 })
