@@ -1,5 +1,6 @@
 export interface RegisterDetails {
-    name:string,
-    email:string,
-    password:string,
+    fname: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
 }
