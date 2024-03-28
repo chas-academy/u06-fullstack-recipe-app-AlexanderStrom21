@@ -18,7 +18,7 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   
   registerForm = new FormGroup({
-    fname: new FormControl('',[
+    name: new FormControl('',[
       Validators.required, 
       Validators.minLength(6),
       Validators.maxLength(40)
@@ -33,18 +33,24 @@ export class RegisterComponent {
       Validators.maxLength(40),
     ]),
 
-    confirmPassword: new FormControl('',[ 
+    password_confirmation: new FormControl('',[ 
     Validators.required]),
 
 
   });
 
   constructor(private authService: AuthService) { }
+
   onSubmit(): void {
     const regData = this.registerForm.value;
-    this.authService.registerUser(regData as RegisterDetails)
-    
+    this.authService.registerUser(regData as RegisterDetails).subscribe({
+       next:(result) => {
+      console.log("Welcome as a User!");
+    },
+      error:(error) =>{
+      console.log("Registration Error");
+    }
+  });
+
   }
-
 }
-

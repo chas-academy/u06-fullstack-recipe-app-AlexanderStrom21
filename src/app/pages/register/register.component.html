@@ -1,30 +1,42 @@
 <p>register works!</p>
 <div class="register-form">
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <label for="fname">First name:</label><br>
-    <input
-    type="text"
-    formControlName="fname"
+  <label for="name">First name:
+    <br>
+      <input
+  type="text"
+    formControlName="name"
     class="form-control"><br>
+  </label><br>
 
-    <label for="email">email:</label><br>
-    <input         
+
+    <label for="email">email:
+      <br>
+      <input         
     type="text"
     formControlName="email"
     class="form-control"> 
     <br>
+    </label><br>
     
-    <label for="password">password:</label><br>
-    <input         
+    
+    <label for="password">password:
+      <br>
+ <input         
     type="text"
     formControlName="password"
     class="form-control"><br>
+    </label><br>
+   
 
-    <label for="confirmPassword">Confirm password:</label><br>
-    <input         
+    <label for="password_confirmation">Confirm password:
+      <br>
+   <input         
     type="text"
-    formControlName="confirmPassword"
-    class="form-control"><br>
+    formControlName="password_confirmation"
+    class="form-control">
+    </label><br>
+ 
 
     <p>Complete the form to enable button.</p>
     <button type="submit" [disabled]="!registerForm.valid">Submit</button>

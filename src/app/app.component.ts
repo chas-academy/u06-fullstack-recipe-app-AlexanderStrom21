@@ -27,10 +27,10 @@ export class AppComponent {
 
   constructor(private auth: AuthService){
     this.registerDetails = {
-      fname:'',
+      name:'',
       email:'',
       password:'',
-      confirmPassword:''
+      password_confirmation:''
     }
     this.loginDetails = {
       email:'user@user.user',

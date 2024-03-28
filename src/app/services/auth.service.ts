@@ -41,9 +41,6 @@ export class AuthService {
       })
   }
 
-  // getUser2(): Observable<User[]>{
-  //   return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
-  // }
 
   private handleError(error:HttpErrorResponse){
     if(error.status === 404){
