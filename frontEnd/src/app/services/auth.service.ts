@@ -39,6 +39,7 @@ export class AuthService {
       catchError(this.handleError)).subscribe(result =>{
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
       })
+      //subscribe result, pipe errors,
   }
 
 
