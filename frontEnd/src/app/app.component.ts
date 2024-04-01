@@ -3,13 +3,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { LoginDetails } from './interfaces/login-details';
 import { User } from './interfaces/user';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { RegisterDetails } from './interfaces/register-details';
+import { Observable } from 'rxjs';
+import { LoggedInUser } from './interfaces/loggedin-user';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -20,7 +22,7 @@ export class AppComponent {
 
   registerDetails: RegisterDetails;
   loginDetails: LoginDetails; 
-
+  loggedIn$: Observable<LoggedInUser>
   
   user?: User;
 
@@ -36,7 +38,7 @@ export class AppComponent {
       email:'user@user.user',
       password:'user'
     }
-
+    this.loggedIn$ = this.auth.loggedIn$;
 
     auth.loginUser(this.loginDetails);
     
