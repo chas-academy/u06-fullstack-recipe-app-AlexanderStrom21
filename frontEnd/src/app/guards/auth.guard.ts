@@ -4,14 +4,11 @@ import { AuthService } from '../services/auth.service';
 
 
 export const authGuard: CanActivateFn = (route, state) => {
-  // let isLoggedIn = false;
 
-  // console.log("trying to log in");
+ const auth: AuthService = inject(AuthService);
 
-  // const auth: AuthService = inject(AuthService);
+ console.log(auth.getLoginStatus());
 
-  // auth.loggedIn$.subscribe((v) => console.log(v));
+ return auth.getLoginStatus();
 
-  // return isLoggedIn;
-  return true;
 };

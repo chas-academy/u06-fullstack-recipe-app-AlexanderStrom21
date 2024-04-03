@@ -35,12 +35,10 @@ export class AppComponent {
       password_confirmation:''
     }
     this.loginDetails = {
-      email:'user@user.user',
-      password:'user'
+      email:'',
+      password:''
     }
     this.loggedIn$ = this.auth.loggedIn$;
-
-    auth.loginUser(this.loginDetails);
     
   }
   

@@ -57,7 +57,13 @@ export class AuthService {
   }
 
   logoutUser(){
-
+    this.updateLoginState({
+      user: undefined,
+      loginState: false,
+    });
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      'Authorization',
+      'Bearer ')
   }
   getCurrentUser(){
     let user: User;
