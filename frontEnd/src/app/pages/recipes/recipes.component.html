@@ -1,15 +1,25 @@
 <p>recipes works!</p>
 
 <input type="text" [(ngModel)] ="searchterm">
+<p>example: chicken</p><br>
+<input type="text" [(ngModel)] ="cuisineType">
+<p>example: american</p><br>
+<input type="text" [(ngModel)] ="mealType">
+<p>example: dinner</p><br>
+<input type="text" [(ngModel)] ="dishType">
+<p>example: main course</p> <br>
+
 
 <button (click)="searchRecipe()">Get Recipes</button>
     
 @for(recipe of recipes; track recipe){
 <article>
     <h3>{{recipe.label}}</h3>
+
     <img src="{{recipe.image}}" width="200"/>
+
     <p>time to cook: {{recipe.totalTime}}min</p>
-    <p><a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]"></a></p>
+    <p><a [routerLink]="['/recipe', recipe.selfref | recipeidformatter]">click for more details</a></p>
     <br>
     <p>Ingredients: {{recipe.ingredientLines}}</p>
     

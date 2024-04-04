@@ -17,12 +17,14 @@ export class RecipesComponent {
 
   recipes?: Recipe[];
 
-  searchterm = "Chicken";
-
+  searchterm = "search term";
+  cuisineType = "cuisine type";
+  mealType = "meal type";
+  dishType = "dish Type";
   constructor(private recipeService: RecipeService){}
 
   searchRecipe(){
-    this.recipeService.getRecipes(this.searchterm).subscribe((result) =>{
+    this.recipeService.getRecipes(this.searchterm, this.cuisineType, this.mealType, this.dishType).subscribe((result) =>{
       console.table(result);
       let recipes: Recipe[];
         recipes = result.hits.map((item: { recipe: { label: any; image: any; ingredientLines: any; totalTime: any; }; _links: { self: { href: any; }; }; }) =>{
