@@ -21,7 +21,7 @@ export class AuthService {
   private signedIn = new BehaviorSubject<boolean>(false)
   signedIn$ = this.signedIn
 
-  private baseUrl = 'https://u06-fullstack-recipe-app-alexanderstrom21.onrender.com';
+  private baseUrl = 'https://u06-fullstack-recipe-app-alexanderstrom21.onrender.com/api/';
 
   private httpOptions ={
   headers: new HttpHeaders({
@@ -45,7 +45,7 @@ export class AuthService {
     
   }
   loginUser(loginDetails: LoginDetails){
-    this.http.post<any>(this.baseUrl + '/login', loginDetails, this.httpOptions).pipe(
+    this.http.post<any>(this.baseUrl + 'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result =>{
         this.updateLoginState({
           user: result.user,
