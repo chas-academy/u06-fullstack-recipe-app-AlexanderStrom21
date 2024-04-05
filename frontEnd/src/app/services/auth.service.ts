@@ -21,7 +21,7 @@ export class AuthService {
   private signedIn = new BehaviorSubject<boolean>(false)
   signedIn$ = this.signedIn
 
-  private baseUrl = 'https://u06-fullstack-recipe-app-alexanderstrom21.onrender.com/api/';  
+  private baseUrl = 'https://u06-fullstack-recipe-app-alexanderstrom21.onrender.com/api/';
 
   private httpOptions ={
   headers: new HttpHeaders({
