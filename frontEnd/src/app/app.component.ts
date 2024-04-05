@@ -41,12 +41,4 @@ export class AppComponent {
     this.loggedIn$ = this.auth.loggedIn$;
     
   }
-  
-  // getUser(){
-  //   this.auth.getUser2().subscribe(res =>{
-  //     console.log(res[0]);
-  //     this.user = res [0];
-  //   })
-  // }
-
 }

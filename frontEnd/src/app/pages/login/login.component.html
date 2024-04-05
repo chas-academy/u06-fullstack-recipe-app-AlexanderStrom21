@@ -1,26 +1,27 @@
-<p>login works!</p>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-<label for="email">email:
-    <br>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="max-w-sm mx-auto">
+  <div class="mb-5">
+<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">email:
     <input         
   type="text"
   formControlName="email"
-  class="form-control"> 
-  <br>
-  </label><br>
+  placeholder="alex@alex.alex"
+  class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+  </label>
+</div>
 
-<label for="password">password:
+<div class="mb-5">
+<label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">password:
     <br>
 <input         
   type="text"
   formControlName="password"
-  class="form-control"><br>
-  </label><br>
- 
-  <p>Complete the form to enable button.</p>
-<button type="submit">Login</button>
+  placeholder="alexalex"
+  class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"><br>
+  </label>
+ </div>
+
+<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
 </form><br>
-<form (ngSubmit)="loggOut()">
-<button type="submit">Logout</button>
+<form (ngSubmit)="loggOut()" class="max-w-sm mx-auto">
+<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Logout</button>
 </form>

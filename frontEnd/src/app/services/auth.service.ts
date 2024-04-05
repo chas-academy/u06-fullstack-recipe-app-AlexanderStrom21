@@ -53,7 +53,6 @@ export class AuthService {
         });
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
       })
-      //subscribe result, pipe errors,
   }
 
   logoutUser(){

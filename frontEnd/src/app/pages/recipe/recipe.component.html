@@ -1,9 +1,11 @@
-<p>recipe works!</p>
-
-    <h3>{{recipe?.label}}</h3>
+<section class="max-w-sm mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700">
+<div class="max-w-sm mx-auto block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+    <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{recipe?.label}}</h3>
 
     <img src="{{recipe?.image}}" width="200"/>
 
     <p>time to cook: {{recipe?.totalTime}}min</p>
     <br>
     <p>Ingredients: {{recipe?.ingredientLines}}</p>
+</div>
+</section>

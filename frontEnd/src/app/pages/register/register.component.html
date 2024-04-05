@@ -1,45 +1,41 @@
-<p>register works!</p>
-<div class="register-form">
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <label for="name">First name:
-    <br>
-      <input
-  type="text"
+  <div class="register-form">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="max-w-sm mx-auto">
+      
+      <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name:
+        <input
+    type="text"
     formControlName="name"
-    class="form-control"><br>
-  </label><br>
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      </label>
 
-
-    <label for="email">email:
-      <br>
-      <input         
+  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">email:
+    <input         
     type="text"
     formControlName="email"
-    class="form-control"> 
-    <br>
-    </label><br>
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+  </label>
     
-    
-    <label for="password">password:
-      <br>
- <input         
+<div class="mb-5">
+  <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">password:
+    <input         
     type="text"
     formControlName="password"
-    class="form-control"><br>
-    </label><br>
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  </label>
+</div>
    
-
-    <label for="password_confirmation">Confirm password:
-      <br>
-   <input         
+<div class="mb-5">
+  <label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password:
+    <input         
     type="text"
     formControlName="password_confirmation"
-    class="form-control">
-    </label><br>
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  </label>
+</div>
  
 
-    <p>Complete the form to enable button.</p>
-    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
-    <p>Form Status: {{ registerForm.status }}</p>
-  </form>
-</div>
+<p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!registerForm.valid" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+<p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Form Status: {{ registerForm.status }}</p>
+    </form>
+  </div>

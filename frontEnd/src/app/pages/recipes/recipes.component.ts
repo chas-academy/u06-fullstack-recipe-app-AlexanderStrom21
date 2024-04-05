@@ -17,10 +17,10 @@ export class RecipesComponent {
 
   recipes?: Recipe[];
 
-  searchterm = "search term";
-  cuisineType = "cuisine type";
-  mealType = "meal type";
-  dishType = "dish Type";
+  searchterm = "chicken";
+  dishType = "main course";
+  cuisineType = "american";
+  mealType = "dinner";
   constructor(private recipeService: RecipeService){}
 
   searchRecipe(){
